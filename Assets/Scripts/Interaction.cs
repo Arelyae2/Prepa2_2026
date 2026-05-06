@@ -27,6 +27,7 @@ public enum InteractionType
     playSound,
     setCheckpoint,
     killPlayer,
+    enemy,
     enemyChase,
     enemyNewPatrol,
 }

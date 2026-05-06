@@ -150,12 +150,15 @@ public class PlayerInteractor : MonoBehaviour
             case InteractionType.killPlayer:
                 GameManager.Instance.KillPlayer();
                 break;
+            case InteractionType.enemy:
+                AI_NavMeshAgent.Instance.StartFollow();
+                break;
             case InteractionType.enemyChase:
                 PatrolPoint.Instance.AddPatrolPoint(InteractiveObjectFromName(interaction.stringArg).transform.position);
-                Enemy.Instance.StartChase();
+                EnemyChase1.Instance.StartChase();
                 break;
             case InteractionType.enemyNewPatrol:
-                if (Enemy.Instance.isChasing)
+                if (EnemyChase1.Instance.isChasing)
                 {
                     PatrolPoint.Instance.AddPatrolPoint(InteractiveObjectFromName(interaction.stringArg).transform.position);
                 }

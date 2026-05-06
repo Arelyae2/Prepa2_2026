@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyChase1 : MonoBehaviour
 {
-    public static Enemy Instance;
+    public static EnemyChase1 Instance;
 
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private BoxCollider boxCollider;
