@@ -150,6 +150,12 @@ public class PlayerInteractor : MonoBehaviour
             case InteractionType.killPlayer:
                 GameManager.Instance.KillPlayer();
                 break;
+            case InteractionType.enemyChase:
+                Enemy.Instance.StartChase();
+                break;
+            case InteractionType.enemyNewPatrol:
+                PatrolPoint.Instance.AddPatrolPoint(InteractiveObjectFromName(interaction.stringArg).transform.position);
+                break;
         }
 
         StartCoroutine(InteractionCoroutine());
