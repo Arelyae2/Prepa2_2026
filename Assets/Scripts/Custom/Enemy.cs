@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    public bool isChasing = false;
+    [HideInInspector] public bool isChasing = false;
+
     private int currentPatrolIndex = 0;
     private Vector3 origin = new Vector3();
     
