@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,12 +11,16 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    private bool isChasing = false;
+    [HideInInspector] public bool isChasing = false;
+
     private int currentPatrolIndex = 0;
+    private Vector3 origin = new Vector3();
     
     private void Awake()
     {
         Instance = this;
+
+        origin = transform.position;
     }
 
     public void StartChase()
@@ -37,10 +40,15 @@ public class Enemy : MonoBehaviour
     private void StopChase()
     {
         isChasing = false;
+        currentPatrolIndex = 0;
 
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
         boxCollider2.enabled = false;
+
+        transform.position = origin;
+
+        PatrolPoint.Instance.listPatrol.Clear();
     }
 
     private IEnumerator Chase()
@@ -72,6 +80,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            StopChase();
+
             GameManager.Instance.KillPlayer();
         }
     }

@@ -133,7 +133,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6244105696245607404
 MonoBehaviour:
@@ -150,4 +150,5 @@ MonoBehaviour:
   meshRenderer: {fileID: 894543106491297035}
   boxCollider: {fileID: 8300451552996702171}
   boxCollider2: {fileID: 8066664003933912236}
-  speed: 5
+  speed: 4.5
+  isChasing: 0
