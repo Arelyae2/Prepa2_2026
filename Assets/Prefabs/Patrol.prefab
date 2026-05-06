@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046f1b4125379f54b91fc2b5fca87b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PatrolPoint
-  listPatrol:
-  - {x: 0, y: 0, z: 0}
+  listPatrol: []
