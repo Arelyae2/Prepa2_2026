@@ -8,6 +8,10 @@ public class SaveSystem : MonoBehaviour
     [SerializeField]
     private Transform playerTransform;
 
+    [SerializeField]
+    private MainMenu mainMenu;
+
+
     private void Start()
     {
         if(MainMenu.loadSavedData)
@@ -26,7 +30,7 @@ public class SaveSystem : MonoBehaviour
             LoadData();
         }
     }
-    void SaveData()
+   public void SaveData()
     {
         SavedData savedData = new SavedData
         {
@@ -37,8 +41,11 @@ public class SaveSystem : MonoBehaviour
         Debug.Log(filepath);
         System.IO.File.WriteAllText(filepath, jsonData);
         Debug.Log("sauvegarde efectuée");
+
+        mainMenu.continueButton.interactable = true;
+        mainMenu.clearSavedDataButton.interactable = true;
     }
-    void LoadData()
+    public void LoadData()
     { 
         string filepath = Application.persistentDataPath + "/SavedData.json";
         string jsonData = System.IO.File.ReadAllText(filepath);
