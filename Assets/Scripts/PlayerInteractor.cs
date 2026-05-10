@@ -163,6 +163,15 @@ public class PlayerInteractor : MonoBehaviour
                     PatrolPoint.Instance.AddPatrolPoint(InteractiveObjectFromName(interaction.stringArg).transform.position);
                 }
                 break;
+            case InteractionType.light:
+                InteractiveObjectFromName(interaction.stringArg).GetComponent<Light>().enabled = !InteractiveObjectFromName(interaction.stringArg).GetComponent<Light>().enabled;
+                break;
+            case InteractionType.verticalPlateform:
+                InteractiveObjectFromName(interaction.stringArg).Vertical();
+                break;
+            case InteractionType.horizontalPlateform:
+                InteractiveObjectFromName(interaction.stringArg).Horizontal();
+                break;
         }
 
         StartCoroutine(InteractionCoroutine());

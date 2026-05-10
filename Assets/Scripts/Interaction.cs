@@ -30,4 +30,7 @@ public enum InteractionType
     enemy,
     enemyChase,
     enemyNewPatrol,
+    light,
+    verticalPlateform,
+    horizontalPlateform,
 }
