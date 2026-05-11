@@ -32,7 +32,6 @@ public class MainMenu : MonoBehaviour
     private MainMenu mainMenu;
 
     public static bool loadSavedData; 
-    //start is called before the first frame uptade
     void Start()
     {
         audioMixer.GetFloat("Volume", out float soundValueForSlider);
@@ -96,7 +95,7 @@ public class MainMenu : MonoBehaviour
     public void LoadMainMenuButton()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainMenu");
     }
     public void QuitGameButton()
     {
