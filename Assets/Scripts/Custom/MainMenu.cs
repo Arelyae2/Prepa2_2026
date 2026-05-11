@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
-    
     public Button continueButton;
 
     [SerializeField]
@@ -17,8 +16,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Dropdown qualitiesDropdown;
 
-    [SerializeField]
-    private AudioMixer audioMixer;
 
     [SerializeField]
     private Slider soundSlider;
@@ -31,11 +28,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private MainMenu mainMenu;
 
-    public static bool loadSavedData; 
     void Start()
     {
-        audioMixer.GetFloat("Volume", out float soundValueForSlider);
-        soundSlider.value = soundValueForSlider;
+        DataHandler.Instance.Initialize();
+
+        soundSlider.value = Registry.data.audioVolume;
 
         bool saveFileExist = System.IO.File.Exists(Application.persistentDataPath + "/SavedData.json");
         continueButton.interactable = saveFileExist;
@@ -82,14 +79,18 @@ public class MainMenu : MonoBehaviour
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
     }
+
+    private void Update()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     public void NewGameButton()
     {
-        loadSavedData = false;
         SceneManager.LoadScene("Main");
     }
     public void ContinueButton()
     {
-        loadSavedData = true;
         SceneManager.LoadScene("Main");
     }
     public void LoadMainMenuButton()
@@ -118,9 +119,10 @@ public class MainMenu : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume()
     {
-        audioMixer.SetFloat("Volume", volume);
+        Registry.data.audioVolume = soundSlider.value;
+        DataHandler.Instance.SaveData();
     }
 
     public void ClearSavedData()

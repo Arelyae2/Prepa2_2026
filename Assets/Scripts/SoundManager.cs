@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
         {
             if(soundObjects[i].soundName == soundName)
             {
+                soundObjects[i].GetComponent<AudioSource>().volume = Registry.data.audioVolume;
                 soundObjects[i].Play();
             }
         }

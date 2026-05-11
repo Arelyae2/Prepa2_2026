@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerControlUpdate()
     {
+
         InputUpdate();
 
         GroundUpdate();

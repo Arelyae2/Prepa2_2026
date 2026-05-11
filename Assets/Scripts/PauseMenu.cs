@@ -10,12 +10,18 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject optionsMenu;
 
-    [SerializeField]
-    private PlayerController cameraScript;
+
+    private void Awake()
+    {
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     void Update()
     {
-        cameraScript.enabled = !isMenuOpened;
 
         if (isMenuOpened)
         {
@@ -30,20 +36,26 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isMenuOpened = !isMenuOpened;
-
-            pauseMenu.SetActive(isMenuOpened);
-            optionsMenu.SetActive(false);
-
-            Time.timeScale = isMenuOpened ? 0 : 1;
-            cameraScript.enabled = !isMenuOpened;
+            if (Registry.paused) Unpause();
+            else
+            {
+                Pause();
+            }
         }
 
-        void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+    }
 
+    void Pause()
+    {
+        Registry.paused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    void Unpause()
+    {
+        Registry.paused = false;
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     public void LookUpdate()
     {
-
+        if (Registry.paused) return;
 
         mouseInputVector.x = Input.GetAxis("Mouse X");
         mouseInputVector.y = -Input.GetAxis("Mouse Y");
@@ -56,6 +56,8 @@ public class CameraController : MonoBehaviour
 
     public void AnimationUpdate()
     {
+        if (Registry.paused) return;
+
         Vector3 localPos = ResetAnimation();
 
         if(PlayerController.Instance.jumping)
@@ -90,6 +92,8 @@ public class CameraController : MonoBehaviour
     
     public void ZoomUpdate()
     {
+        if (Registry.paused) return;
+
         float zoom = normalZoom;
 
         zoomSpeed = runningZoomSpeed;
