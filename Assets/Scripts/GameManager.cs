@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string currentCheckpointName;
 
     Vector3 basePlayerPos;
 
@@ -18,14 +17,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
+        Registry.paused = false;
         DataHandler.Instance.Initialize();
 
         if (Registry.data.saved)
         {
             Debug.Log("Found saved data - applying player pos");
             Debug.Log("Player pos from data: " + Registry.data.playerPosition);
-            basePlayerPos = Registry.data.playerPosition;
-            PlayerController.Instance.transform.position = Registry.data.playerPosition;
+
+            StartCoroutine(ForcePlayerSavedPlacement());
         }
         else
         {
@@ -35,19 +36,15 @@ public class GameManager : MonoBehaviour
 
 
         Initialize();
-
-        StartCoroutine(StartGameCoroutine());
     }
 
-    IEnumerator StartGameCoroutine()
+    IEnumerator ForcePlayerSavedPlacement()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (Registry.data.saved)
+        for (int i = 0; i < 20; i++)
         {
-            Debug.Log("Found saved data - applying player pos");
-            Debug.Log("Player pos from data: " + Registry.data.playerPosition);
             basePlayerPos = Registry.data.playerPosition;
             PlayerController.Instance.transform.position = Registry.data.playerPosition;
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -55,15 +52,11 @@ public class GameManager : MonoBehaviour
     {
         PlayerInteractor.Instance.Initialize();
         HUD.Instance.Initialize();
-
-
+        MainMenu.Instance.Initialize();
     }
-
 
     private void Update()
     {
-
-
         //player
         if (!HUD.Instance.Displaying())
         {
@@ -99,16 +92,16 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(string objectName)
     {
-        currentCheckpointName = objectName;
+        Registry.data.currentCheckpointName = objectName;
     }
 
     public void KillPlayer()
     {
         Debug.Log("Killed player");
 
-        if(PlayerInteractor.Instance.InteractiveObjectFromName(currentCheckpointName) != null)
+        if(PlayerInteractor.Instance.InteractiveObjectFromName(Registry.data.currentCheckpointName) != null)
         {
-            PlayerController.Instance.transform.position = PlayerInteractor.Instance.InteractiveObjectFromName(currentCheckpointName).transform.position;
+            PlayerController.Instance.transform.position = PlayerInteractor.Instance.InteractiveObjectFromName(Registry.data.currentCheckpointName).transform.position;
             return;
         }
 

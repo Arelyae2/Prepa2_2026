@@ -34,7 +34,23 @@ public class DataHandler : MonoBehaviour
     {
         Debug.Log("Saving");
 
-        Registry.data.playerPosition = PlayerController.Instance.transform.position;
+        if(PlayerController.Instance)
+        {
+            Registry.data.playerPosition = PlayerController.Instance.transform.position;
+        }
+
+        if(PlayerInteractor.Instance)
+        {
+            Registry.data.interactiveObjectsData.Clear();
+            foreach (InteractiveObject obj in PlayerInteractor.Instance.interactiveObjects)
+            {
+                InteractiveObjectData objData = new InteractiveObjectData();
+                objData.objectName = obj.objectName;
+                objData.interactionID = obj.interactionID;
+                Registry.data.interactiveObjectsData.Add(objData);
+            }
+        }
+
         Registry.data.saved = true;
 
         string jsonData = JsonUtility.ToJson(Registry.data);
@@ -76,4 +92,14 @@ public class SavedData
     public bool saved;
     public Vector3 playerPosition;
     public float audioVolume = 1f;
+    public string currentCheckpointName;
+
+    public List<InteractiveObjectData> interactiveObjectsData = new List<InteractiveObjectData>();
+}
+
+[System.Serializable]
+public class InteractiveObjectData
+{
+    public string objectName;
+    public int interactionID;
 }
