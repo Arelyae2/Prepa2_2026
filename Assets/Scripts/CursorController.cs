@@ -41,8 +41,8 @@ public class CursorController : MonoBehaviour
 
     void NormalMode()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         cursorImage.gameObject.SetActive(true);
         cursorImage.color = Color.white;

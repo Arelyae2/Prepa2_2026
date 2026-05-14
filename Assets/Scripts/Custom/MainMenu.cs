@@ -8,6 +8,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public Button continueButton;
 
     [SerializeField]
@@ -28,10 +35,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private MainMenu mainMenu;
 
-    void Start()
+    public void Initialize()
     {
-        DataHandler.Instance.Initialize();
-
         soundSlider.value = Registry.data.audioVolume;
 
         bool saveFileExist = System.IO.File.Exists(Application.persistentDataPath + "/SavedData.json");
@@ -78,12 +83,10 @@ public class MainMenu : MonoBehaviour
         resolutionsDropdown.AddOptions(resolutionOptions);
         resolutionsDropdown.value = currentResolutionIndex;
         resolutionsDropdown.RefreshShownValue();
+
+        optionsPanel.SetActive(false);
     }
 
-    private void Update()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
-    }
 
     public void NewGameButton()
     {
@@ -91,13 +94,28 @@ public class MainMenu : MonoBehaviour
     }
     public void ContinueButton()
     {
+        DataHandler.Instance.LoadData();
         SceneManager.LoadScene("Main");
-    }
+    }   
     public void LoadMainMenuButton()
     {
         Time.timeScale = 1;
+        Registry.paused = false;
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void ClickSaveButton()
+    {
+        DataHandler.Instance.SaveData();
+    }
+
+    public void ClickLoadButton()
+    {
+        DataHandler.Instance.LoadData();
+        SceneManager.LoadScene("Main");
+    }
+
+
     public void QuitGameButton()
     {
         Application.Quit();
@@ -122,7 +140,8 @@ public class MainMenu : MonoBehaviour
     public void SetVolume()
     {
         Registry.data.audioVolume = soundSlider.value;
-        DataHandler.Instance.SaveData();
+
+
     }
 
     public void ClearSavedData()
@@ -135,5 +154,6 @@ public class MainMenu : MonoBehaviour
     public void EnableDisableOptionsPanel()
     {
         optionsPanel.SetActive(!optionsPanel.activeSelf);
+        DataHandler.Instance.SaveData();
     }
 }

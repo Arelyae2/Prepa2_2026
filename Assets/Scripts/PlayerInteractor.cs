@@ -13,6 +13,20 @@ public class PlayerInteractor : MonoBehaviour
     public void Initialize()
     {
         interactiveObjects = FindObjectsByType<InteractiveObject>(FindObjectsSortMode.None);
+
+        if(Registry.data.saved)
+        {
+            for (int i = 0; i < interactiveObjects.Length; i++)
+            {
+                for (int j = 0; j < Registry.data.interactiveObjectsData.Count; j++)
+                {
+                    if (interactiveObjects[i].objectName == Registry.data.interactiveObjectsData[j].objectName)
+                    {
+                        interactiveObjects[i].interactionID = Registry.data.interactiveObjectsData[j].interactionID;
+                    }
+                }
+            }
+        }
     }
 
     [HideInInspector]
@@ -25,7 +39,7 @@ public class PlayerInteractor : MonoBehaviour
     [SerializeField] Transform cameraLookerTransform;
     [SerializeField] float selectionDistance;
 
-    InteractiveObject[] interactiveObjects;
+    public InteractiveObject[] interactiveObjects;
 
     public void SelectionUpdate()
     {
