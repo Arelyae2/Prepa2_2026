@@ -52,7 +52,11 @@ public class GameManager : MonoBehaviour
     {
         PlayerInteractor.Instance.Initialize();
         HUD.Instance.Initialize();
-        MainMenu.Instance.Initialize();
+
+        if (MainMenu.Instance != null)
+        {
+            MainMenu.Instance.Initialize();
+        }
     }
 
     private void Update()
