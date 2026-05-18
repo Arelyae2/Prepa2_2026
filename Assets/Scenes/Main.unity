@@ -171,12 +171,14 @@ MonoBehaviour:
   - requiredObject: 
     type: 6
     stringArg: Boop
+    floatArg: 0
     length: 0
     nextInteractionID: 1
     playNextInteractionInstantly: 0
   - requiredObject: 
     type: 6
     stringArg: Boop2
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -275,6 +277,7 @@ MonoBehaviour:
   - requiredObject: 
     type: 7
     stringArg: CheckPoint 1
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -664,6 +667,7 @@ MonoBehaviour:
   - requiredObject: 
     type: 5
     stringArg: Example Letter
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -5112,6 +5116,7 @@ MonoBehaviour:
   - requiredObject: 
     type: 6
     stringArg: Boop
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -6144,6 +6149,7 @@ MonoBehaviour:
   - requiredObject: Red Cylinder
     type: 0
     stringArg: Blue Cylinder
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -7202,6 +7208,7 @@ MonoBehaviour:
   - requiredObject: 
     type: 8
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -7348,7 +7355,7 @@ PrefabInstance:
       objectReference: {fileID: 1591120555}
     - target: {fileID: 4158322740426803944, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_VersionIndex
-      value: 675
+      value: 723
       objectReference: {fileID: 0}
     - target: {fileID: 4158322740426803944, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -7396,7 +7403,7 @@ PrefabInstance:
       objectReference: {fileID: 1828383551}
     - target: {fileID: 4917519134142541736, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_VersionIndex
-      value: 362
+      value: 410
       objectReference: {fileID: 0}
     - target: {fileID: 4922986777860633295, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_LocalScale.x
@@ -7462,13 +7469,33 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1481133611}
+    - target: {fileID: 8213800533984647277, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213800533984647277, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213800533984647277, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7938121
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213800533984647277, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.60816324
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213800533984647277, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 74.914
+      objectReference: {fileID: 0}
     - target: {fileID: 8260376268795262977, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1657441735}
     - target: {fileID: 8260376268795262977, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_VersionIndex
-      value: 333
+      value: 381
       objectReference: {fileID: 0}
     - target: {fileID: 8444492953819538765, guid: 10aff39bc86e7ff468317bcb67c66919, type: 3}
       propertyPath: m_Mesh
