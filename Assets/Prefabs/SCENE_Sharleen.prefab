@@ -377,6 +377,7 @@ MonoBehaviour:
   - requiredObject: 
     type: 13
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -754,9 +755,10 @@ MonoBehaviour:
   objectName: volant
   interactionID: 0
   interactions:
-  - requiredObject: espadon
+  - requiredObject: 
     type: 13
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -1458,6 +1460,7 @@ MonoBehaviour:
   - requiredObject: manivelle
     type: 0
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -1480,6 +1483,7 @@ MonoBehaviour:
   - requiredObject: manivelle
     type: 2
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
@@ -1856,9 +1860,10 @@ MonoBehaviour:
   objectName: 
   interactionID: 0
   interactions:
-  - requiredObject: volant
+  - requiredObject: 
     type: 13
     stringArg: 
+    floatArg: 0
     length: 0
     nextInteractionID: 0
     playNextInteractionInstantly: 0
