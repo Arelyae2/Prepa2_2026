@@ -755,7 +755,7 @@ MonoBehaviour:
   objectName: volant
   interactionID: 0
   interactions:
-  - requiredObject: 
+  - requiredObject: AB
     type: 13
     stringArg: espadon
     floatArg: 3
@@ -778,7 +778,6 @@ GameObject:
   - component: {fileID: 5019878550048274980}
   - component: {fileID: 7399549999095520611}
   - component: {fileID: 5628419453356957783}
-  - component: {fileID: 1327965482206179021}
   m_Layer: 0
   m_Name: manivelle
   m_TagString: Untagged
@@ -1462,25 +1461,9 @@ MonoBehaviour:
     stringArg: AB
     floatArg: 0
     length: 0
-    nextInteractionID: 0
-    playNextInteractionInstantly: 0
-  goAwayAtStart: 0
---- !u!114 &1327965482206179021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5477045527029041379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46147955e10b8a143ac63af4983994b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractiveObject
-  objectName: 
-  interactionID: 0
-  interactions:
-  - requiredObject: manivelle
+    nextInteractionID: 1
+    playNextInteractionInstantly: 1
+  - requiredObject: 
     type: 2
     stringArg: 
     floatArg: 0
