@@ -9,6 +9,7 @@ public class Interaction
     [Header("Effects")]
     public InteractionType type;
     public string stringArg;
+    public float floatArg;
     public float length;
 
     [Header("Next Interaction")]

@@ -38,7 +38,7 @@ public class InteractiveObject : MonoBehaviour
         transform.position = basePosition;
     }
 
-    public void Vertical()
+    public void Vertical(float value)
     {
         if (!isTransit)
         {
@@ -46,7 +46,7 @@ public class InteractiveObject : MonoBehaviour
             {
                 isTransit = true;
 
-                transform.DOLocalMoveY(-2, 1)
+                transform.DOLocalMoveY(-value, 1)
                 .SetRelative()
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>
@@ -59,7 +59,7 @@ public class InteractiveObject : MonoBehaviour
             {
                 isTransit = true;
 
-                transform.DOLocalMoveY(2, 1)
+                transform.DOLocalMoveY(value, 1)
                 .SetRelative()
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>
@@ -71,7 +71,7 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
-    public void Horizontal()
+    public void Horizontal(float value)
     {
         if (!isTransit)
         {
@@ -79,7 +79,7 @@ public class InteractiveObject : MonoBehaviour
             {
                 isTransit = true;
 
-                transform.DOLocalRotate(new Vector3(0, 180, 0), 1)
+                transform.DOLocalRotate(new Vector3(0, value, 0), 1)
                 .SetRelative()
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>
@@ -92,7 +92,7 @@ public class InteractiveObject : MonoBehaviour
             {
                 isTransit = true;
 
-                transform.DOLocalRotate(new Vector3(0, -180, 0), 1)
+                transform.DOLocalRotate(new Vector3(0, -value, 0), 1)
                 .SetRelative()
                 .SetEase(Ease.InOutSine)
                 .OnComplete(() =>

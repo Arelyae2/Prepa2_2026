@@ -181,10 +181,10 @@ public class PlayerInteractor : MonoBehaviour
                 InteractiveObjectFromName(interaction.stringArg).GetComponent<Light>().enabled = !InteractiveObjectFromName(interaction.stringArg).GetComponent<Light>().enabled;
                 break;
             case InteractionType.verticalPlateform:
-                InteractiveObjectFromName(interaction.stringArg).Vertical();
+                InteractiveObjectFromName(interaction.stringArg).Vertical(interaction.floatArg);
                 break;
             case InteractionType.horizontalPlateform:
-                InteractiveObjectFromName(interaction.stringArg).Horizontal();
+                InteractiveObjectFromName(interaction.stringArg).Horizontal(interaction.floatArg);
                 break;
         }
 
